@@ -7,7 +7,7 @@ pipeline {
 '''
         sh 'docker tag ghcr.io/foundry-rs/foundry:latest foundry:latest'
         sh 'export RPC_URL="https://eth.llamarpc.com"'
-        sh 'docker run foundry "cast block --rpc-url $RPC_URL latest"'
+        sh 'docker run foundry "cast block --rpc-url "https://eth.llamarpc.com" latest"'
         echo 'Built'
       }
     }
