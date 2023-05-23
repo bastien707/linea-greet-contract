@@ -5,6 +5,7 @@ pipeline {
       steps {
         sh 'curl -L https://foundry.paradigm.xyz | bash'
         sh '. /var/jenkins_home/.bashrc'
+        sleep 2
         sh 'foundryup'
         echo 'Built'
       }
