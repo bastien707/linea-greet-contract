@@ -3,13 +3,15 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        echo 'Building..'
+        sh 'forge build'
+        echo 'Built'
       }
     }
 
     stage('Test') {
       steps {
         echo 'Testing..'
+        sh 'forge test -vvvv'
       }
     }
 
