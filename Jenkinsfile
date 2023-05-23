@@ -15,7 +15,7 @@ pipeline {
     stage('Test') {
       steps {
         echo 'Testing..'
-        sh 'forge test -vvvv'
+        sh 'docker run forge test -vvvv'
       }
     }
 
