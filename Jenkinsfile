@@ -7,6 +7,7 @@ pipeline {
 '''
         sh 'forge build'
         echo 'Built'
+        sh 'foundryup'
       }
     }
 
