@@ -5,8 +5,9 @@ pipeline {
       steps {
         sh '''docker pull ghcr.io/foundry-rs/foundry:latest
 '''
-        sh 'foundryup'
-        sh 'forge build'
+        sh 'docker tag ghcr.io/foundry-rs/foundry:latest foundry:latest'
+        sh 'export RPC_URL="https://eth.llamarpc.com"'
+        sh 'docker run foundry "cast block --rpc-url $RPC_URL latest"'
         echo 'Built'
       }
     }
