@@ -1,8 +1,6 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.13;
 
-import "lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol";
-
 contract HelloWorld {
     string private greetings;
     uint private version = 0;
