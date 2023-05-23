@@ -5,9 +5,9 @@ pipeline {
       steps {
         sh '''docker pull ghcr.io/foundry-rs/foundry:latest
 '''
+        sh 'foundryup'
         sh 'forge build'
         echo 'Built'
-        sh 'foundryup'
       }
     }
 
