@@ -15,7 +15,7 @@ pipeline {
     stage('Test') {
       steps {
         echo 'Testing..'
-        sh 'echo $PWD'
+        sh 'echo $PWD && echo ls'
         sh 'docker run foundry "forge test -vvvv"'
       }
     }
