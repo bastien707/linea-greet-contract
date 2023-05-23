@@ -3,6 +3,10 @@ pipeline {
   stages {
     stage('Build') {
       steps {
+        sh '''docker pull ghcr.io/foundry-rs/foundry:latest
+'''
+        sh '''docker build -t foundry .
+'''
         sh 'forge build'
         echo 'Built'
       }
