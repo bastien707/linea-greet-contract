@@ -4,11 +4,9 @@ pipeline {
     stage('Build') {
       steps {
         sh 'curl -L https://foundry.paradigm.xyz | bash'
-        sh '. /var/jenkins_home/.bashrc'
-        sh 'pwd'
-        sh 'ls'
         sh '. /var/jenkins_home/.bashrc && foundryup'
-        sh 'pwd'
+        sh '. /var/jenkins_home/.bashrc && forge build'
+        sh 'forge build'
         echo 'Built'
       }
     }
