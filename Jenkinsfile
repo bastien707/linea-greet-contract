@@ -7,7 +7,7 @@ pipeline {
         sh '. /var/jenkins_home/.bashrc'
         sh 'pwd'
         sh 'ls'
-        sh 'foundryup'
+        sh '. /var/jenkins_home/.nvm/nvm.sh && foundryup'
         sh 'pwd'
         echo 'Built'
       }
