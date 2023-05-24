@@ -2,10 +2,14 @@ pipeline {
   agent any
   stages {
     stage('Build') {
+      agent any
+      environment {
+        PATH = '$PATH:/var/jenkins_home/.foundry/bin'
+      }
       steps {
         sh 'curl -L https://foundry.paradigm.xyz | bash'
         sh '. /var/jenkins_home/.bashrc && foundryup'
-        sh '. /var/jenkins_home/.bashrc && forge build'
+        sh 'forge build'
         echo 'Built'
       }
     }
@@ -24,5 +28,8 @@ pipeline {
       }
     }
 
+  }
+  environment {
+    PATH = '$PATH:/var/jenkins_home/.foundry/bin'
   }
 }
