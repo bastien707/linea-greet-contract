@@ -2,19 +2,20 @@ pipeline {
   agent any
   stages {
     stage('Build') {
+      agent any
       steps {
-        sh '''docker pull ghcr.io/foundry-rs/foundry:latest
-'''
-        sh 'forge build'
+        sh 'curl -L https://foundry.paradigm.xyz | bash'
+        sh '. /var/jenkins_home/.bashrc && foundryup'
+        sh '. /var/jenkins_home/.bashrc && forge build'
         echo 'Built'
-        sh 'foundryup'
       }
     }
 
     stage('Test') {
       steps {
         echo 'Testing..'
-        sh 'forge test -vvvv'
+        sh 'ls'
+        sh '. /var/jenkins_home/.bashrc && forge test -vv && forge test -vvvv'
       }
     }
 
